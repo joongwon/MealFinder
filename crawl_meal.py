@@ -47,8 +47,9 @@ def crawl(school_region, school_code, year, month, date):
 def get_allergy_text(nums):
     to_return = ""
     for next_allergy in nums.split('.')[:-1]:
-        if int(next_allergy) > 18:
-            next_allergy = next_allergy[1:]
+        if not next_allergy == '':
+            if int(next_allergy) > 18:
+                next_allergy = next_allergy[1:]
         if next_allergy in allergy_dic:
             to_return += allergy_dic[next_allergy] + ", "
     return to_return[:-2]
